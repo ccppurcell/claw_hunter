@@ -121,6 +121,8 @@ class ClawHunter:
             self.clock.tick(60)
 
     def check_events(self):
+        '''handle clicks, keypresses, quitting'''
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()

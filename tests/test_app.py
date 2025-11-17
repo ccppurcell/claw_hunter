@@ -40,3 +40,10 @@ def test_add_edge():
 
     #add an edge
     app.add_edge(1,2)
+
+    assert app.edge_id == 2
+    assert app.edge_dict[1] == (1,2)
+
+    edges = list(app.G.edges())
+    assert edges == [(1,2)]
+

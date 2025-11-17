@@ -2,7 +2,7 @@ import pygame
 import networkx as nx
 import math
 from itertools import combinations
-import graph_generators as gg
+import claw_hunter.graph_generators as gg
 
 claw = nx.complete_bipartite_graph(1,3)
 class ClawHunter:

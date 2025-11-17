@@ -54,8 +54,6 @@ class ClawHunter:
         self.Hs=[]
         self.clock = pygame.time.Clock()
 
-        self.main_loop()
-
     def add_node(self,pos):
         '''adds a node at a given position'''
 
@@ -106,7 +104,14 @@ class ClawHunter:
                        self.forb_H)
                    ]
 
+    def run(self):
+        '''run the program'''
+
+        #for now run() is somewhat redundant but useful in future?
+        self.main_loop()
+
     def main_loop(self):
+        '''the main loop of the gui'''
 
         while True:
             self.check_events()
@@ -265,3 +270,4 @@ class ClawHunter:
 
 if __name__ == "__main__":
     application = ClawHunter()
+    application.run()

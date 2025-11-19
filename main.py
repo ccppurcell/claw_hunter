@@ -265,7 +265,10 @@ class ClawHunter:
         elif last_addition=="e":
             self.edge_id-=1
             e = self.edge_dict[self.edge_id]
+
+            #FIXME group these into a delete_edge() method
             self.G.remove_edge(*e)
+            self.edge_dict.pop(self.edge_id,None)
 
         self.update_claws()
         self.update_Hs()

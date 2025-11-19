@@ -72,3 +72,18 @@ def test_undo():
 
     #undo once more to check it doesn't crash
     app.undo()
+
+def test_find_claw():
+
+    app = ClawHunter()
+
+    for i in range(4):
+        app.add_node((0,i))
+
+    for j in range(2,5):
+        app.add_edge(1,j)
+
+    app.find_claw(1)
+
+    assert len(app.claws) == 1
+

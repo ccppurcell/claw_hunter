@@ -47,3 +47,28 @@ def test_add_edge():
     edges = list(app.G.edges())
     assert edges == [(1,2)]
 
+def test_undo():
+
+    #init app
+    app = ClawHunter()
+
+    #add two nodes
+    app.add_node((0,0))
+    app.add_node((1,1))
+
+    #add edge
+    app.add_edge(1,2)
+
+    app.undo()
+    assert app.edge_id == 1
+    assert app.edge_dict == {}
+    assert app.G.number_of_edges() == 0
+
+    #undo twice to undo vertices
+    app.undo()
+    app.undo()
+    assert app.id == 1
+    assert app.G.number_of_nodes() == 0
+
+    #undo once more to check it doesn't crash
+    app.undo()

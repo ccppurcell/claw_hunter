@@ -273,6 +273,16 @@ class ClawHunter:
         self.update_claws()
         self.update_Hs()
 
+    def set_G(self, graph):
+        self.G = graph
+        self.update_ids()
+
+    def update_ids(self):
+        self.id = self.G.number_of_nodes()+1
+        self.edge_id = self.G.number_of_edges()+1
+
+
+
 if __name__ == "__main__":
     application = ClawHunter()
     application.run()

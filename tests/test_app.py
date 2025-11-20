@@ -87,3 +87,12 @@ def test_find_claw():
 
     assert len(app.claws) == 1
 
+def test_find_H():
+
+    app = ClawHunter()
+
+    app.set_G(app.forb_H)
+
+    app.find_H(1,2)
+
+    assert len(app.Hs) == 1

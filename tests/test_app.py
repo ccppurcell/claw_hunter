@@ -96,3 +96,27 @@ def test_find_H():
     app.find_H(1,2)
 
     assert len(app.Hs) == 1
+
+def test_remove_non_claws():
+
+    app = ClawHunter()
+
+    app.add_node((0,0))
+
+    app.claws.append([1])
+
+    app.remove_non_claws()
+
+    assert app.claws == []
+
+def test_remove_non_Hs():
+
+    app = ClawHunter()
+
+    app.add_node((0,0))
+
+    app.Hs.append([1])
+
+    app.remove_non_Hs()
+
+    assert app.Hs == []

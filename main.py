@@ -89,15 +89,15 @@ class ClawHunter:
         self.find_claw(node2)
         self.find_H(node1,node2)
 
-        self.update_claws()
-        self.update_Hs()
+        self.remove_non_claws()
+        self.remove_non_Hs()
 
     #FIXME: only need to check number of edges?
-    def update_claws(self):
+    def remove_non_claws(self):
         self.claws = [c for c in self.claws if self.is_claw(c)]
 
     #FIXME: only need to check number of edges?
-    def update_Hs(self):
+    def remove_non_Hs(self):
         self.Hs = [h for h in self.Hs
                    if nx.is_isomorphic(
                        self.G.subgraph(h),
@@ -270,8 +270,8 @@ class ClawHunter:
             self.G.remove_edge(*e)
             self.edge_dict.pop(self.edge_id,None)
 
-        self.update_claws()
-        self.update_Hs()
+        self.remove_non_claws()
+        self.remove_non_Hs()
 
     def set_G(self, graph):
         self.G = graph
